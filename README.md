@@ -7,7 +7,9 @@ Minimal realtime traffic flow analysis using **YOLOv8m** (fine-tuned vehicle det
 | Path | Description |
 |------|-------------|
 | `weights/train34.pt` | Fine-tuned YOLOv8m weights (~50 MB) |
+| `samples/example.jpg` | Example frame for quick inference |
 | `samples/intersection.mp4` | Sample intersection video |
+| `sample.py` | Run model on an image (CLI) |
 | `app.py` | Dash + Flask app entrypoint |
 | `vision.py` | Detection, tracking, zone logic |
 | `zones.yaml` | Entry/exit polygon zones |
@@ -31,6 +33,26 @@ uv sync
 ```
 
 ## Run
+
+### Sample inference on an image
+
+Quick check that the model works (uses `samples/example.jpg`):
+
+```bash
+uv run python sample.py
+```
+
+This prints detections and writes `samples/example_pred.jpg`.
+
+```bash
+# custom image / thresholds
+uv run python sample.py --source samples/example.jpg --conf 0.3 --output samples/example_pred.jpg
+
+# open a preview window (needs a display)
+uv run python sample.py --show
+```
+
+### Web app (video + UI)
 
 Default weights + sample video:
 
@@ -76,6 +98,7 @@ uv run python app.py \
 ```
 .
 ├── app.py              # Web UI + video feed
+├── sample.py           # Image inference demo
 ├── vision.py           # YOLO + ByteTrack pipeline
 ├── detections.py       # Zone / path bookkeeping
 ├── processor.py        # Processor singleton
@@ -83,7 +106,9 @@ uv run python app.py \
 ├── coordinate.py       # Polygon helpers for the UI
 ├── zones.yaml          # Entry / exit zones
 ├── weights/train34.pt
-├── samples/intersection.mp4
+├── samples/
+│   ├── example.jpg
+│   └── intersection.mp4
 ├── components/         # Dash UI pieces
 ├── pages/
 ├── pyproject.toml

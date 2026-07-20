@@ -18,6 +18,8 @@ build/
 # Local outputs
 runs/
 results/
+samples/*_pred.jpg
 *.avi
 *.mkv
 !samples/*.mp4
+!samples/example.jpg
