@@ -1,0 +1,48 @@
+- input_zone: !!python/object/apply:numpy.core.multiarray._reconstruct
+    args:
+    - &id001 !!python/name:numpy.ndarray ''
+    - !!python/tuple
+      - 0
+    - !!binary |
+      Yg==
+    state: !!python/tuple
+    - 1
+    - !!python/tuple
+      - 13
+      - 2
+    - &id002 !!python/object/apply:numpy.dtype
+      args:
+      - i4
+      - false
+      - true
+      state: !!python/tuple
+      - 3
+      - <
+      - null
+      - null
+      - null
+      - -1
+      - -1
+      - 0
+    - false
+    - !!binary |
+      qgIAAHkAAAC/AgAAsQAAAAwDAADvAAAANQMAAPYAAABmAwAA6QAAAHEDAADeAAAAUQMAANQAAAA8
+      AwAApgAAACcDAACRAAAADAMAAH0AAADXAgAALAAAAMkCAAAeAAAAkgIAABcAAAA=
+  output_zone: !!python/object/apply:numpy.core.multiarray._reconstruct
+    args:
+    - *id001
+    - !!python/tuple
+      - 0
+    - !!binary |
+      Yg==
+    state: !!python/tuple
+    - 1
+    - !!python/tuple
+      - 10
+      - 2
+    - *id002
+    - false
+    - !!binary |
+      KwMAAPoCAAA3BgAAAQMAAEIGAAALAwAAhwYAAB0DAACZBgAAIAMAAKcGAAB0AwAArgYAAPgDAACj
+      BgAAJgQAAJUGAAA3BAAACAMAADcEAAA=
+  zone_name: zone-1

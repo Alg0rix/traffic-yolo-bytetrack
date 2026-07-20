@@ -1,0 +1,23 @@
+# Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.python-version
+
+# Runtime / IDE
+.ipynb_checkpoints/
+.idea/
+.vscode/
+*.log
+.DS_Store
+
+# Local outputs
+runs/
+results/
+*.avi
+*.mkv
+!samples/*.mp4
