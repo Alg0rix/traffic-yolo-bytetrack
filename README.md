@@ -67,8 +67,9 @@ uv run python app.py \
 ## Model
 
 - **Architecture:** Ultralytics YOLOv8 **medium** (`yolov8m`)
-- **Weights:** `weights/train34.pt` (fine-tuned on custom vehicle data)
+- **Weights:** `weights/train34.pt` (fine-tuned vehicle detector)
 - **Tracker:** ByteTrack (`supervision`)
+- **Training dataset:** [Vehicle (Roboflow Universe)](https://universe.roboflow.com/marchel-maulana-fahrezi/vehicle-emspn) by marchel-maulana-fahrezi
 
 ## Project layout
 
@@ -88,6 +89,14 @@ uv run python app.py \
 ├── pyproject.toml
 └── README.md
 ```
+
+## Dataset
+
+Training images and labels come from Roboflow Universe:
+
+**https://universe.roboflow.com/marchel-maulana-fahrezi/vehicle-emspn**
+
+Export as YOLOv8 format if you want to retrain. Full image sets are not shipped in this repo (weights only).
 
 ## Notes
 
