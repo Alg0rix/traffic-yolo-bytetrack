@@ -2,6 +2,34 @@
 
 Minimal realtime traffic flow analysis using **YOLOv8m** (fine-tuned vehicle detector) and **ByteTrack**, with a small Dash web UI.
 
+This repository supports the research published in *Jurnal Teknik Informatika (JUTIF)*.
+
+## Publication
+
+**Traffic Flow and Congestion Detection with YOLOv8 and ByteTrack-Based Multi Object Tracking**
+
+| | |
+|---|---|
+| **Authors** | Marchel Maulana Fahrezi, Eka Angga Laksana |
+| **Affiliation** | Faculty of Engineering, Universitas Widyatama, Indonesia |
+| **Journal** | [Jurnal Teknik Informatika (JUTIF)](https://jutif.if.unsoed.ac.id/) |
+| **Issue** | Vol. 5 No. 4 (August 2024), pp. 253–261 |
+| **DOI** | [10.52436/1.jutif.2024.5.4.2063](https://doi.org/10.52436/1.jutif.2024.5.4.2063) |
+| **Article** | [jutif.if.unsoed.ac.id/…/2063](https://jutif.if.unsoed.ac.id/index.php/jurnal/article/view/2063) |
+| **Keywords** | ByteTrack, Congestion Estimation, Traffic Counter, Vehicle Detection, YOLOv8 |
+
+### Abstract
+
+The rapid urbanization witnessed in cities like Bandung, Indonesia, has emerged as a pressing issue, precipitating severe traffic congestion that poses challenges to economic growth and diminishes overall quality of life. This study develops a real-time traffic surveillance and control system that uses the city’s existing CCTV infrastructure with **YOLOv8** for vehicle detection and **ByteTrack** for real-time multi-object tracking. Evaluated at several locations in Bandung, YOLOv8 achieved about **80%** vehicle detection accuracy, ByteTrack about **17%** average error in vehicle counting, and the combined multi-object tracking approach about **80%** accuracy in congestion detection.
+
+### Cite
+
+```
+M. M. Fahrezi and E. A. Laksana, “Traffic Flow and Congestion Detection with
+YOLOv8 and ByteTrack-Based Multi Object Tracking,” J. Tek. Inform. (JUTIF),
+vol. 5, no. 4, pp. 253–261, Aug. 2024, doi: 10.52436/1.jutif.2024.5.4.2063.
+```
+
 ## What’s included
 
 | Path | Description |
@@ -130,4 +158,4 @@ Export as YOLOv8 format if you want to retrain. Full image sets are not shipped 
 
 ## License
 
-School / research project code — use at your own discretion.
+Research / academic project code associated with the JUTIF 2024 publication above — use at your own discretion.
