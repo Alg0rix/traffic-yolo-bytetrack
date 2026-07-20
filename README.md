@@ -38,6 +38,8 @@ vol. 5, no. 4, pp. 253–261, Aug. 2024, doi: 10.52436/1.jutif.2024.5.4.2063.
 | `samples/example.jpg` | Example frame for quick inference |
 | `samples/intersection.mp4` | Sample intersection video |
 | `sample.py` | Run model on an image (CLI) |
+| `finetune.py` | Fine-tune YOLOv8 on a YOLO dataset |
+| `datasets/example/` | Tiny sample set for a smoke fine-tune |
 | `app.py` | Dash + Flask app entrypoint |
 | `vision.py` | Detection, tracking, zone logic |
 | `zones.yaml` | Entry/exit polygon zones |
@@ -61,6 +63,43 @@ uv sync
 ```
 
 ## Run
+
+### Fine-tune (example)
+
+Smoke train on the tiny bundled dataset (`datasets/example`, ~11 train / 4 val images):
+
+```bash
+uv run python finetune.py
+```
+
+Defaults: base `yolov8m.pt` (auto-download), 5 epochs, batch 4.  
+Best weights → `runs/detect/finetune/weights/best.pt`
+
+```bash
+# Custom dataset / longer train (e.g. full Roboflow export)
+uv run python finetune.py \
+  --model yolov8m.pt \
+  --data /path/to/data.yaml \
+  --epochs 100 \
+  --batch 8 \
+  --imgsz 640 \
+  --name vehicles_ft
+
+# Continue from this repo's checkpoint
+uv run python finetune.py \
+  --model weights/train34.pt \
+  --data datasets/example/data.yaml \
+  --epochs 30 \
+  --name from_train34
+
+# Use the new weights for inference
+uv run python sample.py \
+  --weights runs/detect/finetune/weights/best.pt \
+  --source samples/frame_775.jpg
+```
+
+`data.yaml` must be Ultralytics YOLO format (`train` / `val` image dirs + `names`).  
+Full data: [vehicle-emspn on Roboflow](https://universe.roboflow.com/marchel-maulana-fahrezi/vehicle-emspn).
 
 ### Sample inference on an image
 
@@ -127,6 +166,7 @@ uv run python app.py \
 .
 ├── app.py              # Web UI + video feed
 ├── sample.py           # Image inference demo
+├── finetune.py         # Fine-tune YOLOv8
 ├── vision.py           # YOLO + ByteTrack pipeline
 ├── detections.py       # Zone / path bookkeeping
 ├── processor.py        # Processor singleton
@@ -134,8 +174,10 @@ uv run python app.py \
 ├── coordinate.py       # Polygon helpers for the UI
 ├── zones.yaml          # Entry / exit zones
 ├── weights/train34.pt
+├── datasets/example/   # Tiny YOLO dataset for smoke train
 ├── samples/
 │   ├── example.jpg
+│   ├── frame_775.jpg
 │   └── intersection.mp4
 ├── components/         # Dash UI pieces
 ├── pages/
